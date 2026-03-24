@@ -23,11 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-hrcbvab)hg=s-94=4j@a+!oulx2ouk1h_w9rml^bk*5es%4cbe"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+# HTTPS
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SESSION_COOKIE_SECURE = True
+
+# Для HTTPS на нестандартном порту
+CSRF_TRUSTED_ORIGINS = ["https://rudilink.tech:9443"]
+CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ["rudilink.tech"]
 
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Application definition
 
